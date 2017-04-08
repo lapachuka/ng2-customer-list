@@ -1,0 +1,82 @@
+<div class="filter-block">
+  <md-select placeholder="Location"
+             [(ngModel)]="filter.location"
+             name="location"
+             (change)="getUsersList()"
+             class="filter-block-item"
+
+  >
+    <md-option value="">All</md-option>
+    <md-option value="uz-center">Ужгород - Центр</md-option>
+    <md-option value="uz-nr">Ужгород - Новий район</md-option>
+    <md-option value="mukachevo">Мукачево</md-option>
+  </md-select>
+
+  <md-select placeholder="Language"
+             [(ngModel)]="filter.language"
+             name="language"
+             class="filter-block-item"
+             (change)="getUsersList()">
+    <md-option value="">All</md-option>
+    <md-option value="english">English</md-option>
+    <md-option value="hungarian">Hungarian</md-option>
+    <md-option value="german">German</md-option>
+    <md-option value="slovakian">Slovakian</md-option>
+    <md-option value="polish">Polish</md-option>
+
+  </md-select>
+  <md-input-container class="filter-block-item">
+    <input placeholder="Search..." mdInput name="search" [(ngModel)]="filter.search" (keyup)="getUsersList()">
+  </md-input-container>
+</div>
+<div class="user-card-block datagrid">
+  <table>
+    <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Languages</th>
+      <th><i class="material-icons">phone</i></th>
+      <th><i class="material-icons">email</i></th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.last_name}} {{user.first_name}}</td>
+      <td>
+        <span *ngIf="user.language.english"><strong>English</strong></span>
+        <span *ngIf="user.language.german"><strong>German</strong></span>
+        <span *ngIf="user.language.hungarian"><strong>Hungarian</strong></span>
+        <span *ngIf="user.language.slovakian"><strong>Slovakian</strong></span>
+        <span *ngIf="user.language.polish"><strong>Polish</strong></span>
+      </td>
+      <td>{{user.phone}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button md-button (click)="openUserDialog(user)">Edit</button>
+        <button md-button (click)="delete(user)" class="mat-warn">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="5">
+        <div id="no-paging" style="display: none;">
+          &nbsp;
+        </div>
+        <div id="paging">
+          <ul>
+            <li>
+              <button (click)="prev()" name="prev-btn" [disabled]="!offset"><span>Previous</span></button>
+            </li>
+            <li>
+              <button (click)="next()" [disabled]="offset + limit > userCount"><span>Next</span></button>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+<p>Total count: {{userCount}}</p>

@@ -1,0 +1,10 @@
+<div class="user-detail-modal" flex>
+  <h2 md-dialog-title>Warning!</h2>
+  <div md-dialog-content class="form-row-group">
+    <strong>Are you sure that you wanna delete this user?</strong>
+  </div>
+  <div md-dialog-actions>
+    <button md-button (click)="dialogRef.close()">Cancel</button>
+    <button md-button (click)="dialogRef.close('Delete')" class="mat-warn">Delete</button>
+  </div>
+</div>

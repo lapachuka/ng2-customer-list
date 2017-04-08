@@ -1,0 +1,20 @@
+<md-toolbar color="primary" class="main-header">
+  <div class="main-menu">
+    <span class="menu-item">
+      <a routerLink="/birthdays" routerLinkActive="active">Birthdays</a>
+    </span>
+    <span class="menu-item">
+      <a routerLink="/dashboard" routerLinkActive="active">All Users</a>
+    </span>
+  </div>
+  <div class="add-customer-button-block">
+    <button md-fab class="add-customer-button" (click)="openDialog()"><i class="material-icons">add</i></button>
+    <button md-button (click)="exit()" class="full-height-button">
+      <i class="material-icons">exit_to_app</i>
+    </button>
+  </div>
+</md-toolbar>
+
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>

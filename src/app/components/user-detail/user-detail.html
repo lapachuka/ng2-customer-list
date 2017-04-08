@@ -1,0 +1,95 @@
+<div class="user-detail-modal" flex>
+  <h1 md-dialog-title>User details</h1>
+  <form #form="ngForm">
+    <div layot="row" class="form-row-group">
+      <md-select placeholder="Year" [(ngModel)]="user.year" name="year">
+        <md-option *ngFor="let year of years" [value]="year">
+          {{ year }}
+        </md-option>
+      </md-select>
+
+      <md-select placeholder="Month" [(ngModel)]="user.month" name="month" (change)="chooseMonth(form)">
+        <md-option *ngFor="let month of months" [value]="month">
+          {{ month }}
+        </md-option>
+      </md-select>
+
+      <md-select placeholder="Day" [(ngModel)]="user.day" name="day">
+        <md-option *ngFor="let day of days" [value]="day">
+          {{ day }}
+        </md-option>
+      </md-select>
+    </div>
+    <div layout="row" class="form-row-group">
+      <md-input-container flex>
+        <input mdInput placeholder="First name" [(ngModel)]="user.first_name" name="first_name">
+      </md-input-container>
+
+      <md-input-container flex>
+        <input mdInput placeholder="Last name" [(ngModel)]="user.last_name" name="last_name">
+      </md-input-container>
+    </div>
+
+    <div class="form-row-group">
+      <md-select placeholder="Location" [(ngModel)]="user.location" name="location" class="full-width">
+        <md-option value="uz-center">Ужгород - Центр</md-option>
+        <md-option value="uz-nr">Ужгород - Новий район</md-option>
+        <md-option value="mukachevo">Мукачево</md-option>
+      </md-select>
+    </div>
+
+    <div layout="row" class="form-row-group">
+      <md-input-container>
+        <input mdInput placeholder="Telephone" [(ngModel)]="user.phone" name="phone">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Email" [(ngModel)]="user.email" name="email" type="email">
+      </md-input-container>
+    </div>
+
+    <div layout="column" class="form-row-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="user.language.english" name="english-language">
+        English
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="user.language.german" name="germany-language">
+        German
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="user.language.hungarian" name="hungarian-language">
+        Hungarian
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="user.language.slovakian" name="slovakian-language">
+        Slovakian
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="user.language.polish" name="polish-language">
+        Polish
+      </label>
+    </div>
+
+    <div layout="row">
+      <md-input-container class="user-description">
+        <textarea
+          mdInput
+          placeholder="Short description"
+          name="description"
+          [(ngModel)]="user.description"
+        >
+
+        </textarea>
+      </md-input-container>
+    </div>
+
+  </form>
+
+  <div md-dialog-actions class="footer-buttons">
+    <button md-button (click)="dialogRef.close('')">Cancel</button>
+    <button md-button (click)="save()" *ngIf="user.$key" class="mat-button-wrapper">Save</button>
+    <button md-button (click)="create()" *ngIf="!user.$key" class="create-btn">Create</button>
+    <button md-button (click)="add()" *ngIf="!user.$key" class="create-btn">Add</button>
+  </div>
+</div>
+

@@ -1,0 +1,78 @@
+.add-customer-button{
+  padding: 20px;
+  float: right;
+}
+
+.add-customer-button-block{
+  margin: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.full-height-button{
+  top: 0;
+  height: 62px;
+  margin: 0 10px!important;
+}
+
+.full-width{
+  width: 100%;
+}
+
+
+.cancel-btn{
+  background-color: #ffd740;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+md-input-container.user-description{
+  flex: 1;
+  width: 100%;
+  min-height: 20px;
+}
+
+table{
+  width: 100%;
+  text-align: center;
+}
+
+.cur-day{
+   td{
+    color: green!important;
+  }
+}
+
+.filter-block{
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-block-item{
+  flex: 1;
+ // margin-top: 30px;
+  max-width: 550px;
+  padding: 10px;
+}
+
+md-select.filter-block-item{
+  padding-top: 20px;
+}
+
+.menu-item{
+  padding: 20px;
+
+  a{
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a.active{
+    text-decoration: underline;
+  }
+}

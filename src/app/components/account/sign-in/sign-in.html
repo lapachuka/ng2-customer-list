@@ -1,0 +1,39 @@
+<div class="auth-block">
+  <h2>Polyglot</h2>
+
+  <form autocomplete="off"
+        #form="ngForm"
+        (submit)="signIn(form)"
+        novalidate
+        layout="column">
+
+    <div class="form-content">
+      <div class="form-group">
+        <md-input-container>
+          <input type="email"
+                 mdInput
+                 ngModel
+                 name="email"
+                 class=" input-underline input-lg"
+                 placeholder="Email">
+        </md-input-container>
+      </div>
+
+      <div class="form-group">
+        <md-input-container>
+          <input type="password"
+                 mdInput
+                 ngModel
+                 name="password"
+                 class=" input-underline input-lg"
+                 placeholder="Password">
+        </md-input-container>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid" md-raised-button class="btn rounded-btn">Login</button>
+    </div>
+  </form>
+  <br>
+  <span *ngIf="errorMsg">Error: </span> {{errorMsg}}
+  <br>
+</div>
