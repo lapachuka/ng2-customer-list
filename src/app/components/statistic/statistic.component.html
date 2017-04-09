@@ -1,0 +1,19 @@
+<div class="bar-chart" *ngIf="barChartData.length">
+  <h2>Language groups</h2>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
+</div>
+<hr>
+<div class="bar-chart" *ngIf="barChartAgeData.length">
+  <h2>Age groups</h2>
+  <canvas baseChart
+          [datasets]="barChartAgeData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
+</div>
